@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Travel Packages | Royal Ride Travels</title>
+    <meta name="description" content="Explore our extensive travel packages from Pune to various destinations including Goa, Shirdi, Mahabaleshwar, and more.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">Royal Ride<span>Travels</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="packages.html" class="active">Packages</a></li>
+                <li><a href="index.html#airport">Fleets</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <div class="nav-cta" style="margin-right: -20px;">
+                <a href="index.html#booking" class="btn btn-gold">Book Instant Cab</a>
+            </div>
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav" id="mobile-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="packages.html" class="active">Packages</a></li>
+            <li><a href="index.html#airport">Fleets</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="index.html#booking" class="btn btn-gold">Book Instant Cab</a></li>
+        </ul>
+    </div>
+    <!-- Page Header -->
+    <section class="page-header packages-hero" style="padding: 100px 0; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/hero1.png') center/cover; text-align: center; color: #fff;">
+        <div class="container">
+            <div class="breadcrumb" style="margin-bottom: 15px; font-size: 0.9rem;">
+                <a href="index.html" style="color: var(--secondary-color); text-decoration: none;">Home</a> <span style="color: #fff; margin: 0 5px;">&gt;</span> <span style="color: #ddd;">Packages</span>
+            </div>
+            <h1 style="font-size: 3rem; margin-bottom: 20px;">Explore All Travel Packages</h1>
+            <p style="font-size: 1.2rem;">Discover the perfect getaway with our tailored travel packages from Pune.</p>
+        </div>
+    </section>
+    <!-- Packages Section with Filters -->
+    <section class="section packages-main-section">
+        <div class="container">
+            <!-- Filters -->
+            <div class="filters-container" style="background: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <div style="font-weight: 600; color: var(--primary-color);">Filter By:</div>
+                
+                <select id="filter-duration" style="padding: 10px 15px; border-radius: 8px; border: 1px solid #ddd; outline: none; font-family: 'Inter', sans-serif;">
+                    <option value="all">All Durations</option>
+                    <option value="1">1 Day</option>
+                    <option value="2">2 Days</option>
+                    <option value="3+">3+ Days</option>
+                </select>
+                <select id="filter-budget" style="padding: 10px 15px; border-radius: 8px; border: 1px solid #ddd; outline: none; font-family: 'Inter', sans-serif;">
+                    <option value="all">Any Budget</option>
+                    <option value="budget">Under ₹5,000</option>
+                    <option value="mid">₹5,000 - ₹10,000</option>
+                    <option value="premium">Above ₹10,000</option>
+                </select>
+                <select id="filter-type" style="padding: 10px 15px; border-radius: 8px; border: 1px solid #ddd; outline: none; font-family: 'Inter', sans-serif;">
+                    <option value="all">All Destinations</option>
+                    <option value="hill">Hill Station</option>
+                    <option value="beach">Beach</option>
+                    <option value="religious">Religious</option>
+                    <option value="city">City Tour</option>
+                </select>
+                
+                <button id="reset-filters" class="btn btn-outline" style="padding: 10px 20px;">Reset</button>
+            </div>
+            <!-- Packages Grid -->
+            <div class="packages-grid" id="packages-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px;">
+                <!-- JavaScript will populate cards here -->
+            </div>
+            
+            <!-- No Results Message -->
+            <div id="no-results" style="display: none; text-align: center; padding: 50px 0; width: 100%;">
+                <h3>No packages found matching your filters.</h3>
+                <p>Try adjusting your search criteria.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Royal Ride Travels</h3>
+                    <p>Experience the ultimate in luxury and reliability. Your trusted partner for all your travel needs in Mumbai and beyond.</p>
+                    <div class="footer-social">
+                        <h4>SOCIAL NETWORK</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-google"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#airport">Fleets</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" id="contact">
+                    <h4>Contact Details</h4>
+                    <p><strong>Phone:</strong> +91 84218 04237</p>
+                    <p><strong>Email:</strong> contact@royalride24.com</p>
+                    <p><strong>Location:</strong> Royal Ride 24, Pune, Maharashtra, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Royal Ride Travels. All Rights Reserved.</p>
+                <p>Developed by <a href="https://www.sayatech.in/" target="_blank" style="color: var(--secondary-color); text-decoration: none;">sayatech.in</a></p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        let packagesData = [];
+        
+        async function fetchPackages() {
+            try {
+                const res = await fetch('http://localhost:3000/api/packages');
+                packagesData = await res.json();
+                renderPackages();
+            } catch (err) {
+                console.error("Failed to load packages", err);
+            }
+        }
+        fetchPackages();
+        const grid = document.getElementById('packages-grid');
+        const noResults = document.getElementById('no-results');
+        const filters = {
+            duration: document.getElementById('filter-duration'),
+            budget: document.getElementById('filter-budget'),
+            type: document.getElementById('filter-type')
+        };
+        function renderPackages() {
+            grid.innerHTML = '';
+            let count = 0;
+            const selectedDuration = filters.duration.value;
+            const selectedBudget = filters.budget.value;
+            const selectedType = filters.type.value;
+            packagesData.forEach(pkg => {
+                if (
+                    (selectedDuration === 'all' || pkg.duration === selectedDuration) &&
+                    (selectedBudget === 'all' || pkg.budget === selectedBudget) &&
+                    (selectedType === 'all' || pkg.type === selectedType)
+                ) {
+                    count++;
+                    const card = document.createElement('div');
+                    card.style.cssText = 'border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); display: flex; flex-direction: column; background: #fff; position: relative; transition: transform 0.3s ease;';
+                    card.className = 'package-card-hover';
+                    
+                    card.innerHTML = `
+                        <div style="position: relative; aspect-ratio: 4/3; overflow: hidden;">
+                            <img src="${pkg.image}" style="width: 100%; height: 100%; object-fit: cover;" alt="${pkg.name}">
+                            <div style="position: absolute; top: 15px; left: 15px; background: var(--secondary-color); color: var(--primary-color); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">
+                                ${pkg.daysText}
+                            </div>
+                        </div>
+                        <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
+                            <h3 style="margin: 0 0 10px 0; font-size: 1.2rem; color: var(--primary-color);">${pkg.name}</h3>
+                            <p style="margin: 0 0 20px 0; color: #555; font-size: 0.95rem; font-weight: 600;">Starts from <span style="color: var(--secondary-color); font-size: 1.1rem;">${pkg.price}</span></p>
+                            
+                            <div style="margin-top: auto; display: flex; gap: 10px;">
+                                <a href="book-package.html?id=${pkg.id}" class="btn btn-primary" style="flex: 1; text-align: center; padding: 10px; background: var(--primary-color); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 500;">Book Now</a>
+                                <a href="https://wa.me/918421804237?text=Hi, I want to inquire about the ${pkg.name} package." target="_blank" style="display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; background: #25D366; color: white; border-radius: 8px; text-decoration: none;">
+                                    <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                }
+            });
+            if (count === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+        // Add event listeners to filters
+        Object.values(filters).forEach(filter => {
+            filter.addEventListener('change', renderPackages);
+        });
+        document.getElementById('reset-filters').addEventListener('click', () => {
+            filters.duration.value = 'all';
+            filters.budget.value = 'all';
+            filters.type.value = 'all';
+            renderPackages();
+        });
+        // Add hover effect style dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            .package-card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+            }
+            .package-card-hover img {
+                transition: transform 0.5s ease;
+            }
+            .package-card-hover:hover img {
+                transform: scale(1.05);
+            }
+        `;
+        document.head.appendChild(style);
+        // Initial render is now called from fetchPackages()
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
