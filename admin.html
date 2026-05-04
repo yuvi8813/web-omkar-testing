@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Royal Ride Travels</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
+            background: var(--bg-light);
+        }
+        .sidebar {
+            width: 250px;
+            background: var(--primary-color);
+            color: var(--text-white);
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+        }
+        .sidebar h2 {
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+        }
+        .sidebar ul {
+            list-style: none;
+        }
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+        .sidebar ul li a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .sidebar ul li a:hover, .sidebar ul li a.active {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        .main-content {
+            margin-left: 250px;
+            flex: 1;
+            padding: 40px;
+        }
+        .admin-section {
+            display: none;
+        }
+        .admin-section.active {
+            display: block;
+        }
+        .card-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .card-table th, .card-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .card-table th {
+            background: var(--primary-color);
+            color: white;
+        }
+        .card-table img {
+            width: 80px;
+            border-radius: 4px;
+        }
+        .btn-small {
+            padding: 5px 10px;
+            font-size: 0.8rem;
+        }
+        .btn-danger {
+            background: #ff4c4c;
+            color: white;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        .form-container input, .form-container select, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        /* Login Screen */
+        #login-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .login-box h2 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen">
+        <div class="login-box">
+            <h2>Admin Login</h2>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" class="btn btn-gold btn-full">Login</button>
+            </form>
+            <p id="login-error" style="color: red; margin-top: 10px; display: none;">Invalid credentials</p>
+        </div>
+    </div>
+    <!-- Admin Dashboard -->
+    <div class="admin-container" id="admin-dashboard" style="display: none;">
+        <div class="sidebar">
+            <h2>Royal Ride Admin</h2>
+            <ul>
+                <li><a class="nav-btn active" data-target="cars-section">Manage Cars</a></li>
+                <li><a class="nav-btn" data-target="packages-section">Manage Packages</a></li>
+                <li><a class="nav-btn" data-target="local-packages-section">Manage Local Packages</a></li>
+                <li><a class="nav-btn" data-target="cards-section">Manage Testimonials</a></li>
+                <li><a class="nav-btn" data-target="enquiries-section">View Enquiries</a></li>
+                <li><a class="nav-btn" data-target="bookings-section">View Bookings</a></li>
+                <li><a id="logout-btn" style="background: #ff4c4c; color: white; margin-top: 50px;">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <!-- Cars Section -->
+            <div id="cars-section" class="admin-section active">
+                <div class="section-header text-left">
+                    <h2>Manage Cars</h2>
+                </div>
+                
+                <div class="form-container">
+                    <h3>Add New Car</h3>
+                    <form id="car-form">
+                        <input type="text" id="car-name" placeholder="Car Name (e.g. Premium Sedan)" required>
+                        <input type="text" id="car-price" placeholder="Price (e.g. Starting from ₹12/km)" required>
+                        <input type="text" id="car-features" placeholder="Features (comma separated, e.g. 4 Passengers, AC)" required>
+                        <input type="file" id="car-image" accept="image/*" required>
+                        <button type="submit" class="btn btn-dark">Add Car</button>
+                    </form>
+                </div>
+                <table class="card-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cars-table-body">
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Packages Section -->
+            <div id="packages-section" class="admin-section">
+                <div class="section-header text-left">
+                    <h2>Manage Packages</h2>
+                </div>
+                <div class="form-container">
+                    <h3>Add New Package</h3>
+                    <form id="package-form">
+                        <input type="text" id="pkg-name" placeholder="Package Name (e.g. Pune to Goa)" required>
+                        <select id="pkg-type" required>
+                            <option value="">Select Type</option>
+                            <option value="hill">Hill Station</option>
+                            <option value="beach">Beach</option>
+                            <option value="religious">Religious</option>
+                            <option value="city">City Tour</option>
+                        </select>
+                        <select id="pkg-duration" required>
+                            <option value="">Select Duration</option>
+                            <option value="1">1 Day</option>
+                            <option value="2">2 Days</option>
+                            <option value="3+">3+ Days</option>
+                        </select>
+                        <select id="pkg-budget" required>
+                            <option value="">Select Budget</option>
+                            <option value="budget">Under ₹5,000</option>
+                            <option value="mid">₹5,000 - ₹10,000</option>
+                            <option value="premium">Above ₹10,000</option>
+                        </select>
+                        <input type="text" id="pkg-price" placeholder="Price (e.g. ₹12,000)" required>
+                        <input type="text" id="pkg-days" placeholder="Days Text (e.g. 3 Days / 2 Nights)" required>
+                        <input type="file" id="pkg-image" accept="image/*" required>
+                        <button type="submit" class="btn btn-dark">Add Package</button>
+                    </form>
+                </div>
+                <table class="card-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="packages-table-body">
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Local Packages Section -->
+            <div id="local-packages-section" class="admin-section">
+                <div class="section-header text-left">
+                    <h2>Manage Local Packages</h2>
+                </div>
+                <div class="form-container">
+                    <h3>Add New Local Package</h3>
+                    <form id="local-package-form">
+                        <input type="text" id="lp-title" placeholder="Title (e.g. Mumbai to Nashik)" required>
+                        <input type="text" id="lp-desc" placeholder="Description (e.g. Starting from Rs 2499 onwards)" required>
+                        <input type="text" id="lp-price" placeholder="Starts From Price (e.g. ₹ 2499 /day)" required>
+                        <input type="file" id="lp-image" accept="image/*" required>
+                        <button type="submit" class="btn btn-dark">Add Local Package</button>
+                    </form>
+                </div>
+                <table class="card-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="local-packages-table-body">
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Cards / Testimonials Section -->
+            <div id="cards-section" class="admin-section">
+                <div class="section-header text-left">
+                    <h2>Manage Testimonials</h2>
+                </div>
+                <div class="form-container">
+                    <h3>Add New Testimonial</h3>
+                    <form id="card-form">
+                        <input type="text" id="card-author" placeholder="Author Name" required>
+                        <input type="number" id="card-rating" placeholder="Rating (1-5)" min="1" max="5" required>
+                        <textarea id="card-text" placeholder="Testimonial text..." rows="4" required></textarea>
+                        <button type="submit" class="btn btn-dark">Add Testimonial</button>
+                    </form>
+                </div>
+                <table class="card-table">
+                    <thead>
+                        <tr>
+                            <th>Author</th>
+                            <th>Rating</th>
+                            <th>Text</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cards-table-body">
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Enquiries Section -->
+            <div id="enquiries-section" class="admin-section">
+                <div class="section-header text-left">
+                    <h2>View Enquiries</h2>
+                </div>
+                <table class="card-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Customer Info</th>
+                            <th>Trip Details</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="enquiries-table-body">
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Bookings Section -->
+            <div id="bookings-section" class="admin-section">
+                <div class="section-header text-left">
+                    <h2>Customer Bookings</h2>
+                </div>
+                <table class="card-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Customer</th>
+                            <th>Phone</th>
+                            <th>Date/Time</th>
+                            <th>Payment</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookings-table-body">
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>

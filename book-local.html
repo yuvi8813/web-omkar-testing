@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Local Package - Royal Ride Travels</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body class="bg-light">
+    <!-- Navbar (Simplified) -->
+    <nav class="navbar" style="background: var(--primary-color); position: relative;">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">ROYAL RIDE</a>
+            <a href="index.html" class="btn btn-gold btn-small">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container section">
+        <div class="booking-grid">
+            <!-- Left: Order Summary -->
+            <div class="booking-summary-card" id="booking-summary">
+                <h3>Package Details</h3>
+                <div class="summary-details" id="item-details">
+                    <!-- Loaded dynamically -->
+                    <p>Loading package details...</p>
+                </div>
+            </div>
+
+            <!-- Right: Booking Form -->
+            <div class="booking-form-card">
+                <h2>Complete Your Local Booking</h2>
+                <form id="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="cust-name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" id="cust-email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="cust-phone" placeholder="Enter your phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Pickup Date & Time</label>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="date" id="pickup-date" required style="flex: 2;">
+                                <input type="time" id="pickup-time" required style="flex: 1;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Car Type</label>
+                        <select id="car-select" class="form-control" required>
+                            <option value="">-- Choose a car --</option>
+                            <!-- Loaded from API -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pickup Location</label>
+                        <input type="text" id="pickup-loc" placeholder="Enter pickup address" required>
+                    </div>
+
+                    <div class="payment-section">
+                        <h4>Select Payment Option</h4>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="driver" checked>
+                                <span class="opt-box">
+                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                    Pay to Driver
+                                </span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="deposit">
+                                <span class="opt-box">
+                                    <i class="fa-solid fa-shield-check"></i>
+                                    Pay Deposit (₹500)
+                                </span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="full">
+                                <span class="opt-box">
+                                    <i class="fa-solid fa-credit-card"></i>
+                                    Pay Full Amount
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark btn-full" style="margin-top: 20px;">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="booking.js"></script>
+    <script>
+        // Specific init for Local
+        document.addEventListener('DOMContentLoaded', () => {
+            initBookingPage('local');
+        });
+    </script>
+</body>
+</html>
