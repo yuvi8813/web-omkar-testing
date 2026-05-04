@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Ride Travels | Premium Cab Service Mumbai</title>
+    <meta name="description" content="Royal Ride Travels offers premium, reliable, and luxury cab services across Mumbai. 24/7 Airport Transfers, Corporate Travel, and Outstation Cabs.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="#">Royal Ride<span>Travels</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="#airport">Fleets</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <div class="nav-cta" style="margin-right: -20px;">
+                <a href="#booking" class="btn btn-gold">Book Instant Cab</a>
+            </div>
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav" id="mobile-nav">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="#airport">Fleets</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#booking" class="btn btn-gold">Book Instant Cab</a></li>
+        </ul>
+    </div>
+    <!-- Modern Booking Hero Section -->
+    <header class="modern-booking-hero" id="home">
+        <div class="hero-overlay-dark"></div>
+        <div class="container mb-container">
+            
+            <!-- Top Toggle -->
+            <div class="mb-toggle-pill">
+                <div class="mb-toggle-btn active" id="btn-toggle-cars"><i class="fa-solid fa-car-side"></i> Cars</div>
+                <div class="mb-toggle-btn" id="btn-toggle-packages"><i class="fa-solid fa-taxi"></i> Local Packages</div>
+            </div>
+            <!-- Main Heading -->
+            <h1 class="mb-heading">Comfortable Rides at Best Prices</h1>
+            <!-- Booking Section -->
+            <div class="mb-booking-wrapper" id="booking">
+                
+                <!-- Service Tabs -->
+                <div class="mb-tabs">
+                    <button class="mb-tab active"><i class="fa-solid fa-location-arrow"></i> ONEWAY</button>
+                    <button class="mb-tab"><i class="fa-solid fa-arrows-rotate"></i> ROUNDTRIP</button>
+                    <button class="mb-tab"><i class="fa-solid fa-city"></i> LOCAL</button>
+                    <button class="mb-tab"><i class="fa-solid fa-plane-departure"></i> AIRPORT TRANSFERS</button>
+                </div>
+                <!-- Sub Toggles for Airport -->
+                <div class="mb-airport-toggles" id="airport-toggles" style="display: none;">
+                    <button class="mb-airport-toggle active" id="btn-airport-pickup">Airport Pickup</button>
+                    <button class="mb-airport-toggle" id="btn-airport-drop">Airport Drop</button>
+                </div>
+                <!-- Glassmorphism Form -->
+                <div class="mb-glass-form">
+                    <form class="mb-horizontal-form" id="booking-form">
+                        
+                        <!-- Inputs Row -->
+                        <div class="mb-inputs-row">
+                            <div class="mb-input-group" id="from-group">
+                                <label id="label-from">FROM</label>
+                                <div class="mb-input-box">
+                                    <i class="fa-solid fa-location-dot mb-icon" style="color: var(--secondary-color);"></i>
+                                    <input type="text" placeholder="Eg: Nashik">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-swap-icon" id="swap-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+                            <div class="mb-input-group" id="to-group">
+                                <label>TO</label>
+                                <div class="mb-input-box">
+                                    <i class="fa-solid fa-location-dot mb-icon" style="color: var(--secondary-color);"></i>
+                                    <input type="text" placeholder="Eg: Mumbai">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-input-group">
+                                <label id="label-date">DATE</label>
+                                <div class="mb-input-box">
+                                    <i class="fa-regular fa-calendar mb-icon"></i>
+                                    <input type="date" value="2026-04-21" required>
+                                </div>
+                            </div>
+                            <div class="mb-input-group">
+                                <label>TIME</label>
+                                <div class="mb-input-box">
+                                    <i class="fa-regular fa-clock mb-icon"></i>
+                                    <input type="time" value="22:30" required>
+                                </div>
+                            </div>
+                            <!-- Package Dropdown (for Local) -->
+                            <div class="mb-input-group" id="local-package-group" style="display: none;">
+                                <label>PACKAGE</label>
+                                <div class="mb-input-box mb-green-select-box">
+                                    <select class="mb-green-select">
+                                        <option>8 HRS 80 KMS</option>
+                                        <option selected>12 HRS 120 KMS</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Return Date (for Roundtrip) -->
+                            <div class="mb-input-group" id="return-date-group" style="display: none;">
+                                <label>RETURN</label>
+                                <div class="mb-input-box">
+                                    <i class="fa-regular fa-calendar mb-icon"></i>
+                                    <input type="text" placeholder="Drop Off Date" onfocus="(this.type='date')" onblur="(this.value==''?this.type='text':this.type='date')">
+                                </div>
+                            </div>
+                            <!-- Airport Select From -->
+                            <div class="mb-input-group" id="airport-from-group" style="display: none;">
+                                <label>SELECT AIRPORT</label>
+                                <div class="mb-input-box">
+                                    <i class="fa-solid fa-location-dot mb-icon" style="color: var(--secondary-color);"></i>
+                                    <input type="text" class="mb-airport-select" list="airport-options" placeholder="Select or type airport...">
+                                </div>
+                            </div>
+                            <!-- Airport Select To -->
+                            <div class="mb-input-group" id="airport-to-group" style="display: none;">
+                                <label>DROP AIRPORT</label>
+                                <div class="mb-input-box">
+                                    <i class="fa-solid fa-location-dot mb-icon" style="color: var(--secondary-color);"></i>
+                                    <input type="text" class="mb-airport-select" list="airport-options" placeholder="Select or type airport...">
+                                </div>
+                            </div>
+                            <!-- Datalist for Airports -->
+                            <datalist id="airport-options">
+                                <option value="Mumbai - Chhatrapati Shivaji Maharaj (BOM)">
+                                <option value="Pune International Airport (PNQ)">
+                                <option value="Nagpur - Dr. Babasaheb Ambedkar (NAG)">
+                                <option value="Shirdi Airport (SAG)">
+                                <option value="Nashik Airport (ISK)">
+                                <option value="Aurangabad Airport (IXU)">
+                                <option value="Kolhapur Airport (KLH)">
+                                <option value="Jalgaon Airport (JLG)">
+                                <option value="Nanded Airport (NDC)">
+                                <option value="Sindhudurg Airport (SDW)">
+                                <option value="Gondia Airport (GDB)">
+                            </datalist>
+                        </div>
+                        <!-- Buttons Row -->
+                        <div class="mb-buttons-row" style="align-items: center;">
+                            <button type="button" class="mb-btn-add-city" id="btn-add-city" style="display: none;">+ADD ANOTHER CITY</button>
+                            <button type="submit" class="mb-btn-search">ENQUIRY</button>
+                            <span style="color: #fff; font-size: 0.85rem; font-style: italic; opacity: 0.9;">*You will get a call in 10-15 mins.</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Local Packages Wrapper (Hidden by default) -->
+            <div class="mb-local-packages-wrapper" id="local-packages-wrapper" style="display: none; position: relative; z-index: 2; margin-top: 20px;">
+                <h2 style="color: #fff; font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 2px; text-align: center; margin-bottom: 30px;">BEST PACKAGES FOR YOUR JOURNEY</h2>
+                <div class="local-packages-container" id="frontend-local-packages-grid">
+                    <!-- Loaded dynamically via frontend-api.js -->
+                </div>
+            </div>
+
+            <!-- Trust Section -->
+            <div class="mb-trust-section" id="trust-section">
+                <div class="mb-trust-pill">
+                    <i class="fa-solid fa-shield-halved" style="color: var(--secondary-color); font-size: 1.2rem;"></i>
+                    <span>Trusted by <strong>3000+</strong> customers every year</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>7+</h3>
+                    <p>Years in Industry</p>
+                </div>
+                <div class="stat-item">
+                    <h3>3300+</h3>
+                    <p>Individual Customers</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>Corporate Clients</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Car Options -->
+    <section class="cars section bg-light" id="airport">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Premium Fleet</h2>
+                <div class="divider"></div>
+                <p>Choose the vehicle that fits your style and group size.</p>
+            </div>
+            <div class="cars-grid" id="frontend-cars-grid">
+                <!-- Loaded dynamically via frontend-api.js -->
+            </div>
+        </div>
+    </section>
+    <!-- Why Book Us -->
+    <section class="why-us section">
+        <div class="container">
+            <div class="why-us-content">
+                <div class="section-header text-left">
+                    <h2>Why Book With Us?</h2>
+                    <div class="divider"></div>
+                </div>
+                <ul class="why-list">
+                    <li>
+                        <span class="check-icon">✔</span>
+                        <div>
+                            <strong>24/7 Availability</strong>
+                            <p>We are always ready to pick you up, day or night.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">✔</span>
+                        <div>
+                            <strong>Professional Drivers</strong>
+                            <p>All our drivers are verified, trained, and courteous.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">✔</span>
+                        <div>
+                            <strong>Clean & Sanitized Cars</strong>
+                            <p>Your health and hygiene are our top priority.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">✔</span>
+                        <div>
+                            <strong>Transparent Pricing</strong>
+                            <p>No hidden costs. What you see is what you pay.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">✔</span>
+                        <div>
+                            <strong>On-Time Pickup Guarantee</strong>
+                            <p>We value your time. We always arrive on or before time.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="why-us-image">
+                <img src="images/innova_gateway.png" alt="Toyota Innova Cab">
+            </div>
+        </div>
+    </section>
+    <!-- Gallery -->
+    <section class="gallery section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Gallery</h2>
+                <div class="divider"></div>
+                <p>Glimpses of our premium fleet and world-class service.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/gallery1.png" alt="Luxury Car Interior">
+                    <div class="gallery-overlay">
+                        <span>Luxury Interiors</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery2.png" alt="Professional Chauffeur Service">
+                    <div class="gallery-overlay">
+                        <span>Premium Service</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery3.png" alt="Airport Terminal Pickup">
+                    <div class="gallery-overlay">
+                        <span>Airport Transfers</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/hero1.png" alt="Mumbai City Ride">
+                    <div class="gallery-overlay">
+                        <span>City Travel</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/hero2.png" alt="Scenic Outstation Trip">
+                    <div class="gallery-overlay">
+                        <span>Outstation Tours</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/hero3.png" alt="Night Corporate Travel">
+                    <div class="gallery-overlay">
+                        <span>Corporate Fleet</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="testimonials section bg-dark">
+        <div class="container">
+            <div class="section-header text-white">
+                <h2>What Our Customers Say</h2>
+                <div class="divider gold"></div>
+            </div>
+            <div class="testimonial-slider" id="testimonial-slider">
+                <div class="testimonial-container" id="frontend-testimonials-container">
+                    <!-- Loaded dynamically via frontend-api.js -->
+                </div>
+                <div class="testimonial-controls">
+                    <span class="prev">&#10094;</span>
+                    <span class="next">&#10095;</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Royal Ride Travels</h3>
+                    <p>Experience the ultimate in luxury and reliability. Your trusted partner for all your travel needs in Mumbai and beyond.</p>
+                    <div class="footer-social">
+                        <h4>SOCIAL NETWORK</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-google"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#airport">Fleets</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" id="contact">
+                    <h4>Contact Details</h4>
+                    <p><strong>Phone:</strong> +91 84218 04237</p>
+                    <p><strong>Email:</strong> contact@royalride24.com</p>
+                    <p><strong>Location:</strong> Royal Ride 24, Pune, Maharashtra, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Royal Ride Travels. All Rights Reserved.</p>
+                <p>Developed by <a href="https://www.sayatech.in/" target="_blank" style="color: var(--secondary-color); text-decoration: none;">sayatech.in</a></p>
+            </div>
+        </div>
+    </footer>
+    <!-- Mobile Sticky Button -->
+    <div class="mobile-sticky-btn">
+        <a href="#booking" class="btn btn-gold btn-full">Book Now</a>
+    </div>
+    <script>
+        // Hero Section Tabs Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.mb-tab');
+            const returnGroup = document.getElementById('return-date-group');
+            const addCityBtn = document.getElementById('btn-add-city');
+            const fromLabel = document.getElementById('label-from');
+            const toGroup = document.getElementById('to-group');
+            const fromGroup = document.getElementById('from-group');
+            const swapIcon = document.getElementById('swap-icon');
+            const dateLabel = document.getElementById('label-date');
+            const packageGroup = document.getElementById('local-package-group');
+            
+            const airportTogglesContainer = document.getElementById('airport-toggles');
+            const btnAirportPickup = document.getElementById('btn-airport-pickup');
+            const btnAirportDrop = document.getElementById('btn-airport-drop');
+            const airportFromGroup = document.getElementById('airport-from-group');
+            const airportToGroup = document.getElementById('airport-to-group');
+            const toLabel = toGroup.querySelector('label');
+            const fromInput = document.querySelector('#from-group input');
+            const toInput = document.querySelector('#to-group input');
+            function resetFormLayout() {
+                returnGroup.style.display = 'none';
+                addCityBtn.style.display = 'none';
+                toGroup.style.display = 'flex';
+                fromGroup.style.display = 'flex';
+                swapIcon.style.display = 'flex';
+                packageGroup.style.display = 'none';
+                airportTogglesContainer.style.display = 'none';
+                airportFromGroup.style.display = 'none';
+                airportToGroup.style.display = 'none';
+                fromLabel.textContent = 'FROM';
+                toLabel.textContent = 'TO';
+                dateLabel.textContent = 'DATE';
+                fromInput.placeholder = 'Eg: Nashik';
+                toInput.placeholder = 'Eg: Mumbai';
+                
+                // Remove any dynamically added extra cities
+                document.querySelectorAll('.extra-city-group').forEach(el => el.remove());
+            }
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    resetFormLayout();
+                    if(tab.textContent.includes('ROUNDTRIP')) {
+                        returnGroup.style.display = 'flex';
+                        addCityBtn.style.display = 'block';
+                    } else if(tab.textContent.includes('LOCAL')) {
+                        toGroup.style.display = 'none';
+                        swapIcon.style.display = 'none';
+                        packageGroup.style.display = 'flex';
+                        fromLabel.textContent = 'PICKUP LOCATION';
+                        dateLabel.textContent = 'DEPARTURE';
+                    } else if(tab.textContent.includes('AIRPORT TRANSFERS')) {
+                        airportTogglesContainer.style.display = 'flex';
+                        swapIcon.style.display = 'none';
+                        btnAirportPickup.click();
+                    }
+                });
+            });
+            // Add Another City Logic
+            addCityBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const newCityHtml = `
+                    <div class="mb-input-group extra-city-group">
+                        <label>CITY <span style="cursor:pointer; color:#ff4c4c; font-size:0.75rem; float:right; font-weight: bold;" class="remove-city" title="Remove City">X</span></label>
+                        <div class="mb-input-box">
+                            <i class="fa-solid fa-location-dot mb-icon" style="color: var(--secondary-color);"></i>
+                            <input type="text" placeholder="Eg: Lonavala" required>
+                        </div>
+                    </div>
+                `;
+                // If there are already extra cities, insert after the last one, otherwise after toGroup
+                const existingExtraCities = document.querySelectorAll('.extra-city-group');
+                if (existingExtraCities.length > 0) {
+                    existingExtraCities[existingExtraCities.length - 1].insertAdjacentHTML('afterend', newCityHtml);
+                } else {
+                    toGroup.insertAdjacentHTML('afterend', newCityHtml);
+                }
+            });
+            // Remove Extra City Logic (Event Delegation)
+            document.querySelector('.mb-inputs-row').addEventListener('click', (e) => {
+                if (e.target.classList.contains('remove-city')) {
+                    e.target.closest('.extra-city-group').remove();
+                }
+            });
+            // Airport Sub-toggles Logic
+            btnAirportPickup.addEventListener('click', (e) => {
+                e.preventDefault();
+                btnAirportPickup.classList.add('active');
+                btnAirportDrop.classList.remove('active');
+                
+                fromGroup.style.display = 'none';
+                airportFromGroup.style.display = 'flex';
+                toGroup.style.display = 'flex';
+                airportToGroup.style.display = 'none';
+                
+                toLabel.textContent = 'DROP LOCATION';
+                dateLabel.textContent = 'DEPARTURE';
+            });
+            btnAirportDrop.addEventListener('click', (e) => {
+                e.preventDefault();
+                btnAirportDrop.classList.add('active');
+                btnAirportPickup.classList.remove('active');
+                
+                fromGroup.style.display = 'flex';
+                airportFromGroup.style.display = 'none';
+                toGroup.style.display = 'none';
+                airportToGroup.style.display = 'flex';
+                
+                fromLabel.textContent = 'PICKUP LOCATION';
+                dateLabel.textContent = 'DEPARTURE';
+            });
+            const toggles = document.querySelectorAll('.mb-toggle-btn');
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    toggles.forEach(t => t.classList.remove('active'));
+                    toggle.classList.add('active');
+                });
+            });
+            
+            const form = document.querySelector('.mb-horizontal-form');
+            const modalOverlay = document.getElementById('enquiry-modal');
+            const modalClose = document.getElementById('close-enquiry-modal');
+            const tripSummaryDiv = document.getElementById('modal-trip-summary');
+            const finalForm = document.getElementById('final-enquiry-form');
+            if(form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // Gather active tab
+                    const activeTab = document.querySelector('.mb-tab.active').textContent.trim();
+                    let summaryHTML = `<div class="mb-summary-item"><span class="mb-summary-label">Trip Type:</span><span class="mb-summary-value">${activeTab}</span></div>`;
+                    // Helper to add summary item
+                    const addSummary = (label, selector) => {
+                        const input = document.querySelector(selector);
+                        if(input && input.offsetParent !== null && input.value) { // Check if visible and has value
+                            summaryHTML += `<div class="mb-summary-item"><span class="mb-summary-label">${label}:</span><span class="mb-summary-value">${input.value}</span></div>`;
+                        }
+                    };
+                    // Gather based on active tab
+                    if (activeTab.includes('AIRPORT TRANSFERS')) {
+                        const isPickup = btnAirportPickup.classList.contains('active');
+                        summaryHTML += `<div class="mb-summary-item"><span class="mb-summary-label">Service:</span><span class="mb-summary-value">${isPickup ? 'Airport Pickup' : 'Airport Drop'}</span></div>`;
+                        
+                        if(isPickup) {
+                            addSummary('Airport', '#airport-from-group input');
+                            addSummary('Drop Location', '#to-group input');
+                        } else {
+                            addSummary('Pickup Location', '#from-group input');
+                            addSummary('Airport', '#airport-to-group input');
+                        }
+                    } else if (activeTab.includes('LOCAL')) {
+                        addSummary('Pickup Location', '#from-group input');
+                        addSummary('Package', '#local-package-group select');
+                    } else {
+                        addSummary('From', '#from-group input');
+                        addSummary('To', '#to-group input');
+                        
+                        // Extra cities
+                        const extraCities = document.querySelectorAll('.extra-city-group input');
+                        extraCities.forEach((city, index) => {
+                            if(city.value) {
+                                summaryHTML += `<div class="mb-summary-item"><span class="mb-summary-label">City ${index + 2}:</span><span class="mb-summary-value">${city.value}</span></div>`;
+                            }
+                        });
+                    }
+                    // Common fields
+                    addSummary('Date', 'input[type="date"]');
+                    addSummary('Time', 'input[type="time"]');
+                    addSummary('Return Date', '#return-date-group input');
+                    // Populate and show modal
+                    tripSummaryDiv.innerHTML = summaryHTML;
+                    modalOverlay.style.display = 'flex';
+                });
+            }
+            if(modalClose) {
+                modalClose.addEventListener('click', () => {
+                    modalOverlay.style.display = 'none';
+                });
+            }
+            if(finalForm) {
+                finalForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const btn = finalForm.querySelector('button[type="submit"]');
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> PROCESSING...';
+                    
+                    const name = document.getElementById('enq-name').value;
+                    const phone = document.getElementById('enq-phone').value;
+                    const email = document.getElementById('enq-email').value;
+                    // Reconstruct tripDetails array from tripSummaryDiv
+                    const tripDetails = [];
+                    const summaryItems = tripSummaryDiv.querySelectorAll('.mb-summary-item');
+                    summaryItems.forEach(item => {
+                        const label = item.querySelector('.mb-summary-label').textContent.replace(':', '').trim();
+                        const value = item.querySelector('.mb-summary-value').textContent.trim();
+                        tripDetails.push({ label, value });
+                    });
+                    try {
+                        const response = await fetch('http://localhost:3000/api/enquiry', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name, phone, email, tripDetails })
+                        });
+                        const data = await response.json();
+                        
+                        btn.innerHTML = originalText;
+                        alert('Thank you! Your enquiry has been received. We will call you in 10-15 minutes.');
+                        modalOverlay.style.display = 'none';
+                        form.reset();
+                        finalForm.reset();
+                    } catch (error) {
+                        console.error('Error submitting enquiry:', error);
+                        btn.innerHTML = originalText;
+                        alert('Something went wrong submitting your enquiry. Please try again or call us directly.');
+                    }
+                });
+            }
+        });
+    </script>
+    <!-- Enquiry Modal Overlay -->
+    <div id="enquiry-modal" class="mb-modal-overlay" style="display: none;">
+        <div class="mb-modal-content">
+            <div class="mb-modal-header">
+                <h2>Complete Your Enquiry</h2>
+                <span class="mb-modal-close" id="close-enquiry-modal">&times;</span>
+            </div>
+            
+            <div class="mb-modal-body">
+                <!-- Trip Summary Section -->
+                <div class="mb-trip-summary" id="modal-trip-summary">
+                    <!-- Populated via JS -->
+                </div>
+                <!-- Personal Details Form -->
+                <form id="final-enquiry-form">
+                    <div class="mb-input-group" style="width: 100%; margin-bottom: 15px;">
+                        <label style="color: #aaa;">FULL NAME</label>
+                        <div class="mb-input-box" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2);">
+                            <i class="fa-regular fa-user mb-icon" style="color: var(--secondary-color);"></i>
+                            <input type="text" id="enq-name" placeholder="Enter your full name" required style="color: #fff; width: 100%; font-weight: 400;">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-input-group" style="width: 100%; margin-bottom: 15px;">
+                        <label style="color: #aaa;">PHONE NUMBER</label>
+                        <div class="mb-input-box" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2);">
+                            <i class="fa-solid fa-phone mb-icon" style="color: var(--secondary-color);"></i>
+                            <input type="tel" id="enq-phone" placeholder="Enter your phone number" required style="color: #fff; width: 100%; font-weight: 400;">
+                        </div>
+                    </div>
+                    <div class="mb-input-group" style="width: 100%; margin-bottom: 25px;">
+                        <label style="color: #aaa;">EMAIL ADDRESS (Optional)</label>
+                        <div class="mb-input-box" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2);">
+                            <i class="fa-regular fa-envelope mb-icon" style="color: var(--secondary-color);"></i>
+                            <input type="email" id="enq-email" placeholder="Enter your email" style="color: #fff; width: 100%; font-weight: 400;">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="mb-btn-search" style="width: 100%; border-radius: 8px;">CONFIRM ENQUIRY</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="frontend-api.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
